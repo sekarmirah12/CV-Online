@@ -1,0 +1,45 @@
+﻿<Window x:Class="CV_Online.ManagerHome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CV_Online"
+      mc:Ignorable="d" 
+      d:DesignHeight="300"
+      Title="ManagerHome" Width="474">
+
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="300" Stroke="Black" VerticalAlignment="Top" Width="474"/>
+        <DataGrid ItemsSource="{Binding getData}" x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="431" Height="97" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Job Position" Binding="{Binding Position}"/>
+                <DataGridTextColumn Header="Client Name" Binding="{Binding Client_Name}"/>
+                <DataGridTextColumn Header="Interview Schedule" Binding="{Binding Schedule}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Regency" Binding="{Binding Regency}"/>
+                <DataGridTextColumn Header="Result" Binding="{Binding Result}"/>
+                <DataGridTextColumn Header="Comment" Binding="{Binding Comment}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="23" Margin="321,7,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label" Content="Job Position" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtJobPosition" HorizontalAlignment="Left" Height="23" Margin="104,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy" Content="Address" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="23" Margin="104,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy1" Content="Schedule" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtSchedule" HorizontalAlignment="Left" Height="23" Margin="104,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy2" Content="Client Name" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtClient" HorizontalAlignment="Left" Height="23" Margin="104,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy3" Content="Result" HorizontalAlignment="Left" Margin="243,174,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy4" Content="Add Comment" HorizontalAlignment="Left" Margin="243,205,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtComment" HorizontalAlignment="Left" Height="23" Margin="337,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104"/>
+        <ComboBox x:Name="cmbResult" HorizontalAlignment="Left" Margin="337,178,0,0" VerticalAlignment="Top" Width="104">
+            <ComboBoxItem Content="Pass" HorizontalAlignment="Left" Width="102"/>
+            <ComboBoxItem Content="Not Pass" HorizontalAlignment="Left" Width="102"/>
+        </ComboBox>
+        <Label x:Name="label1" Content="Welcome, Manager" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy5" Content="Regency" HorizontalAlignment="Left" Margin="243,148,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtRegency" HorizontalAlignment="Left" Height="23" Margin="337,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104"/>
+        <Button x:Name="button" Content="Update" HorizontalAlignment="Left" Margin="348,243,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>

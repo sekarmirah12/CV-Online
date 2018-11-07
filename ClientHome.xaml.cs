@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -146,6 +147,69 @@ namespace CV_Online
             }
 
         }
-        
+
+        private void btnCV_Click(object sender, RoutedEventArgs e)
+        {
+            Stream checkStream = null;
+            //   OpenFileDialog op1 = new OpenFileDialog();
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Multiselect = false;
+            dlg.Filter = "All Image Files | *.*";
+            //dlg.Filter = "(*.pfw)|*.pfw|All files (*.*)|*.*";
+            Nullable<bool> result = dlg.ShowDialog();
+            // if ((bool)dlg.ShowDialog())
+            if (result == true)
+            {
+                try
+                {
+                    if ((checkStream = dlg.OpenFile()) != null)
+                    {
+                        //   MyImage.Source = new BitmapImage(new Uri(dlg.FileName, UriKind.Absolute));
+                        //listBox1.Items.Add(openFileDialog.FileName);
+                        string filename = dlg.FileName;
+                        txtCV.Text = filename;
+                        // tb_file.AppendText(dlg.FileName.ToString());
+                        MessageBox.Show("Successfully done", filename);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Problem occured, try again later");
+            }
+        }
+
+        private void btnKTP_Click(object sender, RoutedEventArgs e)
+        {
+            Stream checkStream = null;
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Multiselect = false;
+            dlg.Filter = "All Image Files | *.*";
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                try
+                {
+                    if ((checkStream = dlg.OpenFile()) != null)
+                    {
+                        string filename = dlg.FileName;
+                        txtKTP.Text = filename;
+                        MessageBox.Show("Successfully done", filename);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Problem occured, try again later");
+            }
+        }
     }
 }

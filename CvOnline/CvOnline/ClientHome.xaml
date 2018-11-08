@@ -7,10 +7,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="ClientHome"
-      Loaded="Window_Loaded">
+      Loaded="Window_Loaded" Width="525.773" Height="563.918">
 
     <Grid>
-        <Grid Margin="0,0,-223.667,-172.333" HorizontalAlignment="Left" Width="517">
+        <Grid Margin="0,0,-217,-19" HorizontalAlignment="Left" Width="517">
             <Grid.RowDefinitions>
                 <RowDefinition Height="92*"/>
                 <RowDefinition Height="227*"/>
@@ -61,7 +61,7 @@
                         <Label x:Name="label3_Copy9" Content="District" HorizontalAlignment="Left" Margin="268,234,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="label3_Copy10" Content="Regency" HorizontalAlignment="Left" Margin="268,201,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="label3_Copy11" Content="Province" HorizontalAlignment="Left" Margin="268,172,0,0" VerticalAlignment="Top"/>
-                        <DatePicker HorizontalAlignment="Left" Margin="106,205,0,0" VerticalAlignment="Top" Width="120"/>
+                        <DatePicker x:Name="birthday" HorizontalAlignment="Left" Margin="106,205,0,0" VerticalAlignment="Top" Width="120"/>
                         <ComboBox x:Name="cmbProvinceProfil" HorizontalAlignment="Left" Margin="349,176,0,0" VerticalAlignment="Top" Width="120"/>
                         <ComboBox x:Name="cmbRegency" HorizontalAlignment="Left" Margin="349,205,0,0" VerticalAlignment="Top" Width="120"/>
                         <ComboBox x:Name="cmbDistrict" HorizontalAlignment="Left" Margin="349,238,0,0" VerticalAlignment="Top" Width="120"/>
@@ -73,19 +73,52 @@
                     <Grid Background="#FFE5E5E5">
                         <Label x:Name="label3_Copy12" Content="Make Curriculum Vitae" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="label3_Copy13" Content="Last Education" HorizontalAlignment="Left" Margin="23,160,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="label3_Copy14" Content="Upload KTP" HorizontalAlignment="Left" Margin="23,129,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="label3_Copy15" Content="Upload CV" HorizontalAlignment="Left" Margin="23,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.333"/>
+                        <Label x:Name="label3_Copy14" Content="Upload KTP" HorizontalAlignment="Left" Margin="286,96,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="label3_Copy15" Content="Upload CV" HorizontalAlignment="Left" Margin="291,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,0.333"/>
                         <Label x:Name="label3_Copy16" Content="Department" HorizontalAlignment="Left" Margin="23,69,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="label3_Copy17" Content="College" HorizontalAlignment="Left" Margin="25,41,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtCollege" HorizontalAlignment="Left" Height="23" Margin="152,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                         <TextBox x:Name="txtDepartment" HorizontalAlignment="Left" Height="23" Margin="152,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                        <TextBox x:Name="txtCV" HorizontalAlignment="Left" Height="23" Margin="152,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                        <TextBox x:Name="txtKTP" HorizontalAlignment="Left" Height="23" Margin="152,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="txtCV" HorizontalAlignment="Left" Height="23" Margin="350,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="txtKTP" HorizontalAlignment="Left" Height="23" Margin="350,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                         <TextBox x:Name="txtEducation" HorizontalAlignment="Left" Height="23" Margin="152,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                        <Label x:Name="label3_Copy18" Content="Work Experience" HorizontalAlignment="Left" Margin="23,188,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="txtWork" HorizontalAlignment="Left" Height="73" Margin="152,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
-                        <Button x:Name="btnCV" Content="Upload" HorizontalAlignment="Left" Margin="291,104,0,0" VerticalAlignment="Top" Width="75" Click="btnCV_Click"/>
-                        <Button x:Name="btnKTP" Content="Upload" HorizontalAlignment="Left" Margin="291,132,0,0" VerticalAlignment="Top" Width="75" Click="btnKTP_Click"/>
+                        <Button x:Name="btnCV" Content="Upload" HorizontalAlignment="Left" Margin="395,47,0,0" VerticalAlignment="Top" Width="75" Click="btnCV_Click"/>
+                        <Button x:Name="btnKTP" Content="Upload" HorizontalAlignment="Left" Margin="392,102,0,0" VerticalAlignment="Top" Width="75" Click="btnKTP_Click"/>
+                        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="283,160,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+                        <Label x:Name="label3_Copy19" Content="Photo" HorizontalAlignment="Left" Margin="25,99,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txtPhoto" HorizontalAlignment="Left" Height="23" Margin="152,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <Button x:Name="btnPhoto" Content="Upload" HorizontalAlignment="Left" Margin="197,107,0,0" VerticalAlignment="Top" Width="75" Click="btnPhoto_Click" />
+                        <DataGrid ItemsSource="{Binding getData}" x:Name="dataGridExperience" HorizontalAlignment="Left" Margin="223,201,0,0" VerticalAlignment="Top" Width="247" Height="66" SelectionChanged="dataGridExperience_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID Position" Binding="{Binding Position_Id}"/>
+                                <!--<DataGridTextColumn Header="ID Company" Binding="{Binding Company_Id}"/>-->
+                                <DataGridTextColumn Header="Position" Binding="{Binding JobPosition}"/>
+                                <!--<DataGridTextColumn Header="Company" Binding="{Binding CompanyName}"/>-->
+                                <DataGridTextColumn Header="Length" Binding="{Binding Length}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <ComboBox ItemsSource="{Binding getData}" SelectedValuePath="Id" DisplayMemberPath="Name" x:Name="cmbPosition" HorizontalAlignment="Left" Margin="81,203,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbPosition_SelectionChanged"/>
+                        <!--<ComboBox ItemsSource="{Binding getData}" SelectedValuePath="Id" DisplayMemberPath="Name" x:Name="cmbCompany" HorizontalAlignment="Left" Margin="81,230,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbCompany_SelectionChanged"/>-->
+                        <TextBox x:Name="txtLength" HorizontalAlignment="Left" Height="23" Margin="81,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <Button x:Name="btnAddExp" Content="Add Experience" HorizontalAlignment="Left" Margin="223,283,0,0" VerticalAlignment="Top" Width="103" Click="btnAddExp_Click"/>
+                        <Label x:Name="label5_Copy" Content="Length" HorizontalAlignment="Left" Margin="11,254,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="label5_Copy1" Content="Company" HorizontalAlignment="Left" Margin="11,230,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="label5_Copy2" Content="Position" HorizontalAlignment="Left" Margin="11,203,0,0" VerticalAlignment="Top"/>
+                        <DataGrid ItemsSource="{Binding getData}" x:Name="dataGridLanguage" HorizontalAlignment="Left" Margin="223,318,0,0" VerticalAlignment="Top" Width="247" Height="54" SelectionChanged="dataGridLanguage_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID Client" Binding="{Binding Client_Id}"/>
+                                <DataGridTextColumn Header="Name" Binding="{Binding ClientName}"/>
+                                <DataGridTextColumn Header="Language" Binding="{Binding Language}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label x:Name="label5_Copy3" Content="Language" HorizontalAlignment="Left" Margin="13,318,0,0" VerticalAlignment="Top"/>
+                        <!--<Button x:Name="btnAddLang" Content="Add Language" HorizontalAlignment="Left" Margin="81,352,0,0" VerticalAlignment="Top" Width="103" Click="btnAddLang_Click"/>-->
+                        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="223,398,0,0" VerticalAlignment="Top" Width="244" Height="58"/>
+                        <Label x:Name="label6" Content="Networking" HorizontalAlignment="Left" Margin="9,398,0,0" VerticalAlignment="Top"/>
+                        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="81,398,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="label6_Copy" Content="Programming" HorizontalAlignment="Left" Margin="9,424,0,0" VerticalAlignment="Top"/>
+                        <ComboBox x:Name="comboBox_Copy" HorizontalAlignment="Left" Margin="81,424,0,0" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="txtLanguage" HorizontalAlignment="Left" Height="23" Margin="81,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Edit CV">
@@ -105,7 +138,7 @@
                                 <DataGridTextColumn Header="Contact" Binding="{Binding Contact}"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="364" Margin="10,104,0,0" Stroke="Black" VerticalAlignment="Top" Width="471"/>
+                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="420" Margin="10,104,0,-51" Stroke="Black" VerticalAlignment="Top" Width="471"/>
                         <Label x:Name="label4" Content="Name" HorizontalAlignment="Left" Margin="214,139,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtName4" HorizontalAlignment="Left" Height="23" Margin="310,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
                         <Label x:Name="label4_Copy" Content="Date of Birth" HorizontalAlignment="Left" Margin="214,170,0,0" VerticalAlignment="Top"/>
@@ -127,6 +160,9 @@
                         <Label x:Name="label4_Copy8" Content="Work Experience" HorizontalAlignment="Left" Margin="27,433,0,0" VerticalAlignment="Top"/>
                         <TextBox x:Name="txtWork2" HorizontalAlignment="Left" Height="23" Margin="138,436,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
                         <DatePicker HorizontalAlignment="Left" Margin="398,170,0,0" VerticalAlignment="Top" Width="65"/>
+                        <Border Background="Blue" Margin="27,139,319,171">
+                            <Image Stretch="Fill" Margin="0,-1,330,0"/>
+                        </Border>
                     </Grid>
                 </TabItem>
             </TabControl>
